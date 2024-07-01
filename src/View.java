@@ -24,7 +24,7 @@ public class View extends JFrame {
         controller = new Controller(this, model);
 
         setTitle("15 Puzzle");
-        setSize(WIN_DIM + 6, WIN_DIM + 14 + 40 + 40);
+        setSize(WIN_DIM + 6, WIN_DIM + 108);
         setResizable(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(null);

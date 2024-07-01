@@ -10,17 +10,19 @@ public class JPicture extends JComponent {
 
     public JPicture(String filePath, int x, int y, int width, int height) {
         super();
-        try {
-            picture = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream(filePath)));
-        } catch (IOException e) {
+        if (filePath == null)
             picture = null;
-        } finally {
-            setBounds(x, y, width, height);
-        }
+        else
+            try {
+                picture = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream(filePath)));
+            } catch (IOException | IllegalArgumentException e) {
+                picture = null;
+            }
+        setBounds(x, y, width, height);
     }
 
     public JPicture() {
-        this("", 0, 0, 0, 0);
+        this(null, 0, 0, 0, 0);
     }
 
     public BufferedImage getPicture() {
